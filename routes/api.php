@@ -20,4 +20,6 @@ use App\Http\Controllers\StudentController;
 Route::get("/student",[StudentController::class,"index"]);
 Route::get("/student/{id}",[StudentController::class,"show"]);
 Route::post("/student",[StudentController::class,"store"]);
+Route::put("/student/{id}",[StudentController::class,"update"]);
+Route::delete("/student/delete/{id}",[StudentController::class,"destroy"]);
 

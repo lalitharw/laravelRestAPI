@@ -57,7 +57,9 @@ class StudentController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $res = student::find($id);
+        $res->update($request->all());
+        return $res;
     }
 
     /**
@@ -65,6 +67,13 @@ class StudentController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $res = student::find($id)->delete();
+
+        if($res){
+            return response("Deleted Data");
+        }
+        else{
+            return response("Unable to delete");
+        }
     }
 }
