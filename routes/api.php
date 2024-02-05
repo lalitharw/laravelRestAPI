@@ -19,6 +19,9 @@ use App\Http\Controllers\UserController;
 //     return $request->user();
 // });
 Route::post("/register",[UserController::class,"register"]);
+Route::post("/login",[UserController::class,"login"]);
+
+// protected route
 Route::middleware('auth:sanctum')->group([
     function () {
         Route::get("/student", [StudentController::class, "index"]);
@@ -26,5 +29,7 @@ Route::middleware('auth:sanctum')->group([
         Route::post("/student", [StudentController::class, "store"]);
         Route::put("/student/{id}", [StudentController::class, "update"]);
         Route::delete("/student/delete/{id}", [StudentController::class, "destroy"]);
+        Route::get("/logout",[UserController::class,"logout"]);
+
     }
 ]);
